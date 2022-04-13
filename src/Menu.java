@@ -27,21 +27,18 @@ public class Menu {
             Scanner sc = new Scanner(System.in);
             columna= sc.nextInt();
 
-            if(!taulell.isColumnaPlena()){
+            if(!taulell.isColumnaPlena(columna)){
                 if(torn.equals("red")){
                     Fitxa fitxa = new Fitxa("red");
                     taulell.posarFitxa(fitxa, columna);
-                }
-                if(torn.equals("yellow")){
-                    Fitxa fitxa = new Fitxa("yellow");
-                    taulell.posarFitxa(fitxa, columna);
-                }
-                if(torn.equals("red")){
                     torn= "yellow";
                 }
-                if(torn.equals("yellow")){
+                else if(torn.equals("yellow")){
+                    Fitxa fitxa = new Fitxa("yellow");
+                    taulell.posarFitxa(fitxa, columna);
                     torn= "red";
                 }
+
             }
             else{
                 System.out.println("La columna està plena");

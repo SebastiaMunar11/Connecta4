@@ -2,7 +2,7 @@ public class Taulell {
 
     private Casella[][] caselles = new Casella[6][7];
 
-    public Taulell(){
+    public Taulell() {
         omplirCaselles();
     }
 
@@ -28,13 +28,13 @@ public class Taulell {
         for (int i = 0; i < caselles.length; i++) {
             for (int j = 0; j < caselles[0].length; j++) {
                 if (caselles[i][j].isPlena()) {
-                    if(caselles[i][j].getFitxa().getColor().equals("red")){
+                    if (caselles[i][j].getFitxa().getColor().equals("red")) {
                         System.out.print("[ R ]");
                     }
-                    if(caselles[i][j].getFitxa().getColor().equals("yellow")){
+                    if (caselles[i][j].getFitxa().getColor().equals("yellow")) {
                         System.out.print("[ Y ]");
                     }
-                }else {
+                } else {
                     System.out.print("[   ]");
                 }
             }
@@ -44,18 +44,21 @@ public class Taulell {
         System.out.println();
     }
 
-    public void posarFitxa(Fitxa fitxa, int columna){
-        for(int i=caselles.length-1; i>=0; i--){
-            if(!caselles[i][columna].isPlena()){
+    public boolean isColumnaPlena(int columna) {
+        if (caselles[0][columna].isPlena()) {
+            return true;
+        }
+        return false;
+    }
+
+    public void posarFitxa(Fitxa fitxa, int columna) {
+        for (int i = caselles.length - 1; i >= 0; i--) {
+            if (!caselles[i][columna].isPlena()) {
                 caselles[i][columna].setFitxa(fitxa);
                 break;
             }
-            if(i==0){
-                System.out.println("No hi ha espai a aquesta columna");
-            }
         }
     }
-
 
 
 }

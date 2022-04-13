@@ -28,10 +28,10 @@ public class Taulell {
         for (int i = 0; i < caselles.length; i++) {
             for (int j = 0; j < caselles[0].length; j++) {
                 if (caselles[i][j].isPlena()) {
-                    if(caselles[i][j].getFitxa().equals("red")){
+                    if(caselles[i][j].getFitxa().getColor().equals("red")){
                         System.out.print("[ R ]");
                     }
-                    if(caselles[i][j].getFitxa().equals("yellow")){
+                    if(caselles[i][j].getFitxa().getColor().equals("yellow")){
                         System.out.print("[ Y ]");
                     }
                 }else {
@@ -42,6 +42,10 @@ public class Taulell {
         }
 
         System.out.println();
+    }
+
+    public void posarFitxa(String ){
+
     }
 
 

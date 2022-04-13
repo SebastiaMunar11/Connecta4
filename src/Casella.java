@@ -1,13 +1,13 @@
 public class Casella {
 
     private boolean isPlena = false;
-    private String fitxa; // "red" "yellow"
+    private Fitxa fitxa; // "red" "yellow"
 
     public boolean isPlena() {
         return isPlena;
     }
 
-    public String getFitxa() {
+    public Fitxa getFitxa() {
         return fitxa;
     }
 
@@ -15,8 +15,8 @@ public class Casella {
         isPlena = plena;
     }
 
-    public void setFitxa(String fitxa) {
-        if(fitxa.equals("red") || fitxa.equals("yellow")){
+    public void setFitxa(Fitxa fitxa) {
+        if(fitxa.getColor().equals("red") || fitxa.getColor().equals("yellow")){
             this.fitxa = fitxa;
             setPlena(true);
         }

@@ -19,27 +19,13 @@ public class Taulell {
     }
 
     public void displayTaulell() {
-        int fila = 0;
-        int columna = 0;
-
-        System.out.print("     ");
-        for (columna = 0; columna < caselles[0].length; columna++) {
-            if (columna < 10) {
-                System.out.print("  " + columna + "  ");
-            } else {
-                System.out.print("  " + columna + "  ");
-            }
+        for (int i = 0; i < caselles[0].length; i++) {
+            System.out.print("  " + i + "  ");
         }
 
         System.out.println();
 
         for (int i = 0; i < caselles.length; i++) {
-            if (fila < 10) {
-                System.out.print("  " + fila + "  ");
-            } else {
-                System.out.print("  " + fila + " ");
-            }
-            fila++;
             for (int j = 0; j < caselles[0].length; j++) {
                 if (caselles[i][j].isPlena()) {
                     if(caselles[i][j].getFitxa().equals("red")){

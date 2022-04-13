@@ -44,8 +44,16 @@ public class Taulell {
         System.out.println();
     }
 
-    public void posarFitxa(String ){
-
+    public void posarFitxa(Fitxa fitxa, int columna){
+        for(int i=caselles.length-1; i>=0; i--){
+            if(!caselles[i][columna].isPlena()){
+                caselles[i][columna].setFitxa(fitxa);
+                break;
+            }
+            if(i==0){
+                System.out.println("No hi ha espai a aquesta columna");
+            }
+        }
     }
 
 

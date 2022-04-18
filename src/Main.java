@@ -5,6 +5,7 @@ public class Main {
         while(true) {
             menu.demanarAccio();
             menu.getTaulell().displayTaulell();
+            menu.comprovarVictoria();
         }
     }
 }

@@ -74,21 +74,32 @@ public class Menu {
         for (int i = 0; i < taulell.getCaselles().length; i++) {
             for (int j = 0; j < taulell.getCaselles()[0].length; j++) {
                 if (taulell.getCaselles()[i][j].isPlena() && (taulell.getCaselles()[i][j].getFitxa().getColor().equals(guanyador))) {
-                    seguidesVertical++;
-                }
-                if (taulell.getCaselles()[j][i].isPlena() && (taulell.getCaselles()[j][i].getFitxa().getColor().equals(guanyador))) {
                     seguidesHoritzontal++;
+
+                    if (seguidesHoritzontal >= 4) {
+                        victoria(guanyador);
+                    }
+                }else {
+                    seguidesHoritzontal = 0;
                 }
             }
+            seguidesHoritzontal = 0;
         }
 
+        for (int j = 0; j < taulell.getCaselles()[0].length; j++) {
+            for (int i = 0; i < taulell.getCaselles().length; i++) {
+                if (taulell.getCaselles()[i][j].isPlena() && (taulell.getCaselles()[i][j].getFitxa().getColor().equals(guanyador))) {
+                    seguidesVertical++;
+                    if (seguidesVertical >= 4) {
+                        victoria(guanyador);
+                    }
+                }else {
+                    seguidesVertical = 0;
+                }
 
-
-        if (seguidesVertical >= 4 || seguidesHoritzontal >= 4) {
-            victoria(guanyador);
+            }
+            seguidesVertical = 0;
         }
 
     }
-
-
 }

@@ -71,7 +71,7 @@ public class Menu {
             guanyador = "yellow";
         }
 
-        for (int i = 0; i < taulell.getCaselles().length; i++) {
+        for (int i = 0; i < taulell.getCaselles().length; i++) { //HORITZONTAL
             for (int j = 0; j < taulell.getCaselles()[0].length; j++) {
                 if (taulell.getCaselles()[i][j].isPlena() && (taulell.getCaselles()[i][j].getFitxa().getColor().equals(guanyador))) {
                     seguidesHoritzontal++;
@@ -86,7 +86,7 @@ public class Menu {
             seguidesHoritzontal = 0;
         }
 
-        for (int j = 0; j < taulell.getCaselles()[0].length; j++) {
+        for (int j = 0; j < taulell.getCaselles()[0].length; j++) { //VERTICAL
             for (int i = 0; i < taulell.getCaselles().length; i++) {
                 if (taulell.getCaselles()[i][j].isPlena() && (taulell.getCaselles()[i][j].getFitxa().getColor().equals(guanyador))) {
                     seguidesVertical++;
@@ -99,6 +99,37 @@ public class Menu {
 
             }
             seguidesVertical = 0;
+        }
+
+        for (int j = 0; j < taulell.getCaselles()[0].length -3; j++){
+            for (int i = 3; i < taulell.getCaselles().length; i++) {
+                for(int a=0; a<4; a++){
+                    if (taulell.getCaselles()[i-a][j+a].isPlena() && (taulell.getCaselles()[i-a][j+a].getFitxa().getColor().equals(guanyador))) {
+                        seguidesDiagonal++;
+                        if (seguidesDiagonal >= 4) {
+                            victoria(guanyador);
+                        }
+                    }else {
+                        seguidesDiagonal = 0;
+                    }
+                }
+            }
+            seguidesDiagonal = 0;
+        }
+        for (int j = taulell.getCaselles()[0].length-1; j >3; j--){
+            for (int i = 3; i < taulell.getCaselles().length; i++) {
+                for(int a=0; a<4; a++){
+                    if (taulell.getCaselles()[i-a][j-a].isPlena() && (taulell.getCaselles()[i-a][j-a].getFitxa().getColor().equals(guanyador))) {
+                        seguidesDiagonal++;
+                        if (seguidesDiagonal >= 4) {
+                            victoria(guanyador);
+                        }
+                    }else {
+                        seguidesDiagonal = 0;
+                    }
+                }
+            }
+            seguidesDiagonal = 0;
         }
 
     }
